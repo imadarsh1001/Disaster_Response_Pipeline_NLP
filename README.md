@@ -55,11 +55,14 @@ This project requires Python 3.x and the following Python libraries:
 
 ### Screenshots:
 
-#### 1. Home Page
-!(Homepage.JPG)
+### Home Page
+![1. Home Page](Homepage.JPG)
 
-#### 2. Classify Messages Page
-!(classify_message_page.JPG)
+### Classify Messages Page
+
+Input - Please, we need tents and food. We are in Kalupur, Thank you! 
+
+![2. Classify Messages Page](classify_message_page.JPG)
 
 ## Licensing, Authors, Acknowledgements
 Many thanks to Figure-8 for making this available to Udacity for training purposes. Special thanks to Udacity for the training. Feel free to utilize the contents of this while citing Udacity or figure-8 accordingly.
