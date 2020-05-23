@@ -18,6 +18,19 @@ from sklearn.multioutput import MultiOutputClassifier
 import pickle
 
 def load_data(database_filepath):
+    """
+        - Load cleaned data from database into dataframe
+        - Extract X, Y data
+        
+        Args:
+            database_filepath (str): File path of database
+            
+        Returns:
+            X (pandas dataframe): Contains messages
+            Y (pandas dataframe): Contains categories of disaster
+            category_names (list): Name of categories
+    """
+    # Load data from database
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table('Disaster_Response', engine)
     X = df.message
@@ -26,6 +39,16 @@ def load_data(database_filepath):
     return X, y, category_names 
 
 def tokenize(text):
+    """
+        - Tokenize text
+        
+        Args:
+            text (str): Message string
+            
+        Returns:
+            tokens (list): List of tokens
+    """
+
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -43,6 +66,12 @@ def tokenize(text):
 
 
 def build_model():
+    """
+        - Build the model with the proposed parameters
+        
+        Returns:
+            cv (GridSearchCV): Machine learning model
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -59,6 +88,16 @@ def build_model():
 
 
 def evaluate_model(model, X_test, y_test, category_names):
+    """
+        - Evaluate model
+        
+        Args:
+            model (Predicter model): Machine learning model (Predicter)
+            X_test (pandas series): Test data set of X
+            Y_test (pandas dataframe): Test data set of Y
+            category_names (list): Name of categories
+    """
+    # Predict test data
     predict_y = model.predict(X_test)
     
     # Evaluate
@@ -68,6 +107,13 @@ def evaluate_model(model, X_test, y_test, category_names):
         print(classification_report(y_test[category], predict_y[:, i]))
 
 def save_model(model, model_filepath):
+    """
+        - Saves model in pickle file
+        
+        Args:
+            model (Predicter model): Machine learning model (Predicter)
+            model_filepath (str): Path where model will save.
+    """
     with open(model_filepath, 'wb') as file:
         pickle.dump(model, file)
 
