@@ -12,24 +12,24 @@ It is divided into the following sections:
 
 ## File Description
 ~~~~~~~
-        disaster_response_pipeline
-          |-- app
-                |-- templates
-                        |-- go.html
-                        |-- master.html
-                |-- run.py
-          |-- data
-                |-- disaster_message.csv
-                |-- disaster_categories.csv
-                |-- DisasterResponse.db
-                |-- process_data.py
-                |-- ETL Pipeline Preparation.ipynb
-                |-- Twitter-sentiment-self-drive-DFE.csv
-          |-- models
-                |-- classifier_1.pkl
-                |-- train_classifier.py
-                |-- ML Pipeline Preparation.ipynb
-          |-- README
+disaster_response_pipeline
+  |-- app
+        |-- templates
+                |-- go.html
+                |-- master.html
+        |-- run.py
+  |-- data
+        |-- disaster_message.csv
+        |-- disaster_categories.csv
+        |-- DisasterResponse.db
+        |-- process_data.py
+        |-- ETL Pipeline Preparation.ipynb
+        |-- Twitter-sentiment-self-drive-DFE.csv
+  |-- models
+        |-- classifier_1.pkl
+        |-- train_classifier.py
+        |-- ML Pipeline Preparation.ipynb
+  |-- README
 ~~~~~~~
 ### Installation:
 
